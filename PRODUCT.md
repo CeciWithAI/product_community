@@ -68,9 +68,9 @@ The goal is a **mutually beneficial community**. Every member gives something an
 
 A marketplace where members **offer** and **ask**.
 
-- **Categories**: Mentors · Skills · Trainings · Volunteers (+ All).
+- **Categories**: Mentors · Skills · Trainings · Volunteers · Networking · Sponsorships (+ All).
 - **Toggle**: *Offers* (people giving) / *Asks* (people looking for help).
-- **Search & filters**: keyword, format (1:1, group, remote, in person), cost (free / exchange / paid).
+- **Search & filters**: keyword, format (1:1, group, remote, in person), cost (free / exchange). No paid listings: the community is give-first.
 - **Listing cards**: person, title, description, tags, format, availability, mutual connections, and a "Good match for you" badge when it fits your Asks or Offers.
 - **Actions**: *Request to connect* / *Offer to help*, with a short warm message. Accepted connections are added to *My People* automatically.
 - **Post a listing**: create an offer or ask.
