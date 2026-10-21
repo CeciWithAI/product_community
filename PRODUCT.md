@@ -1,10 +1,12 @@
-# Kindred — a personal CRM for a mutually beneficial community
+# Doorway — a personal CRM for a mutually beneficial community
 
 > *A little care goes a long way. Your people, and the right new ones. No rush.*
 
+**Brand.** *Doorway*: every relationship starts with an open door. The logo is an arched doorway with warm light spilling out, in deep teal (#1d5e55) and soft peach (#f3ddd0).
+
 ## 1. Summary
 
-Kindred is a **personal relationship manager** (a "personal CRM") built into a **community**. Most CRMs treat people as a pipeline. Kindred treats relationships as something you look after. It helps you:
+Doorway is a **personal relationship manager** (a "personal CRM") built into a **community**. Most CRMs treat people as a pipeline. Doorway treats relationships as something you look after. It helps you:
 
 1. **Look after the people you already know.** Remember the small details, notice when it's been a while, and show up at the moments that matter.
 2. **Meet the right new people.** Use a community marketplace where members offer and ask for mentoring, skills, training and volunteer help.
