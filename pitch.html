@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kindred — Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f5f4f0; --card: #fdfcf9; --ink: #1f3a36; --text: #2c3a38; --muted: #5f6b69; --line: #e4e2dc;
+    --teal: #1d5e55; --teal-soft: #e3eeeb;
+    --peach: #f3ddd0; --peach-b: #e5c3b1; --mint: #e0ede9; --mint-b: #b9d3cb;
+    --lav: #e5e2f2; --lav-b: #c6c0e0; --sand: #f1e8d3; --sand-b: #dccba4; --sky: #dde8f2; --sky-b: #b7cbe0;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+    /* 1 unit = 1/100 of the slide width; slide is always 16:9 and fits the window */
+    --sw: min(100vw, 177.78vh);
+    --u: calc(var(--sw) / 100);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { background: #e9e7e1; font-family: var(--sans); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+  .deck { position: absolute; inset: 0; display: grid; place-items: center; }
+  .slide {
+    position: absolute; width: var(--sw); height: calc(var(--sw) * .5625);
+    background: var(--bg); padding: calc(var(--u) * 5.5) calc(var(--u) * 6.5);
+    font-size: calc(var(--u) * 1.35); line-height: 1.5;
+    opacity: 0; pointer-events: none; transform: translateY(calc(var(--u) * .6));
+    transition: opacity .45s ease, transform .45s ease;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; transform: none; }
+
+  .eyebrow { font-size: calc(var(--u) * .95); font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--teal); }
+  .eyebrow.muted { color: var(--muted); }
+  h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 400; margin: 0; }
+  h1 { font-size: calc(var(--u) * 6.4); line-height: 1.04; letter-spacing: -.01em; }
+  h2 { font-size: calc(var(--u) * 3.9); line-height: 1.1; margin-top: calc(var(--u) * 1.2); }
+  h3 { font-size: calc(var(--u) * 1.9); line-height: 1.2; }
+  p { margin: 0; }
+  .lede { font-size: calc(var(--u) * 1.7); color: var(--muted); margin-top: calc(var(--u) * 1.4); max-width: 60ch; }
+  .muted { color: var(--muted); }
+  .teal { color: var(--teal); }
+  .em { font-family: var(--serif); font-style: italic; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--u) * 1.5); padding: calc(var(--u) * 2) calc(var(--u) * 2.2); }
+  .soft { background: var(--teal-soft); border-radius: calc(var(--u) * 1.5); padding: calc(var(--u) * 2) calc(var(--u) * 2.2); }
+  .grid { display: grid; gap: calc(var(--u) * 1.6); }
+  .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+  .fill { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .mt { margin-top: calc(var(--u) * 3); }
+  .mt-s { margin-top: calc(var(--u) * 1.2); }
+
+  .av {
+    width: calc(var(--u) * 4.2); height: calc(var(--u) * 4.2); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
+    font-family: var(--serif); font-size: calc(var(--u) * 1.45); color: var(--ink); border: 2px solid;
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,.6);
+  }
+  .av.lg { width: calc(var(--u) * 6.5); height: calc(var(--u) * 6.5); font-size: calc(var(--u) * 2.2); }
+  .c-peach { background: var(--peach); border-color: var(--peach-b); } .c-mint { background: var(--mint); border-color: var(--mint-b); }
+  .c-lav { background: var(--lav); border-color: var(--lav-b); } .c-sand { background: var(--sand); border-color: var(--sand-b); }
+  .c-sky { background: var(--sky); border-color: var(--sky-b); }
+  .sprout { background: var(--teal-soft); border-color: var(--mint-b); color: var(--teal); }
+  .sprout svg { width: 52%; height: 52%; }
+
+  .bridge { display: inline-flex; align-items: center; gap: calc(var(--u) * 1.1); background: var(--teal-soft); border-radius: calc(var(--u) * 2.2); padding: calc(var(--u) * 2.4) calc(var(--u) * 2.8); }
+  .dash { width: calc(var(--u) * 3); height: 2px; background: var(--mint-b); }
+
+  .big-num { font-family: var(--serif); font-size: calc(var(--u) * 5.2); color: var(--ink); line-height: 1; }
+  .src { font-size: calc(var(--u) * .85); color: var(--muted); margin-top: auto; padding-top: calc(var(--u) * 1.2); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-size: calc(var(--u) * .95); padding: calc(var(--u) * .3) calc(var(--u) * .8); border-radius: 99px; background: var(--teal-soft); color: var(--teal); font-weight: 500; }
+  .pill.lav { background: var(--lav); color: #4c437a; }
+  .pill.ghost { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+  ul.clean { list-style: none; padding: 0; margin: calc(var(--u) * 1) 0 0; }
+  ul.clean li { padding: calc(var(--u) * .55) 0 calc(var(--u) * .55) calc(var(--u) * 1.6); position: relative; color: var(--text); }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: calc(var(--u) * 1.05); width: calc(var(--u) * .55); height: calc(var(--u) * .55); border-radius: 50%; background: var(--mint-b); }
+  .x li::before { background: var(--peach-b); }
+
+  /* Problem slide */
+  .gap-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: calc(var(--u) * 1.2); }
+  .arrow { align-self: center; color: var(--mint-b); font-size: calc(var(--u) * 2.5); }
+
+  /* Solution two halves */
+  .half h3 { margin: calc(var(--u) * .8) 0 calc(var(--u) * .6); }
+  .mini { background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--u) * 1); padding: calc(var(--u) * 1) calc(var(--u) * 1.2); display: flex; gap: calc(var(--u) * 1); align-items: center; margin-top: calc(var(--u) * .8); }
+  .mini .av { width: calc(var(--u) * 3); height: calc(var(--u) * 3); font-size: calc(var(--u) * 1.05); }
+  .mini b { color: var(--ink); font-weight: 600; display: block; }
+  .mini span { color: var(--muted); font-size: calc(var(--u) * 1.1); }
+
+  /* Flywheel */
+  .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: calc(var(--u) * 1); position: relative; }
+  .step { text-align: center; position: relative; }
+  .step .n { width: calc(var(--u) * 5); height: calc(var(--u) * 5); border-radius: 50%; margin: 0 auto calc(var(--u) * 1.2); display: grid; place-items: center; font-family: var(--serif); font-size: calc(var(--u) * 2); color: var(--teal); background: var(--card); border: 2px solid var(--mint-b); position: relative; z-index: 1; }
+  .step h3 { font-size: calc(var(--u) * 1.6); }
+  .step p { color: var(--muted); font-size: calc(var(--u) * 1.15); margin-top: calc(var(--u) * .5); }
+  .loop::before { content: ""; position: absolute; top: calc(var(--u) * 2.5); left: 10%; right: 10%; height: 2px; background: var(--mint-b); }
+  .return { margin-top: calc(var(--u) * 2.6); text-align: center; color: var(--teal); font-weight: 500; }
+
+  /* Personas */
+  .persona { display: flex; flex-direction: column; gap: calc(var(--u) * .9); }
+  .persona .head { display: flex; align-items: center; gap: calc(var(--u) * 1); }
+  .persona .who b { display: block; color: var(--ink); font-size: calc(var(--u) * 1.45); }
+  .persona .who span { color: var(--muted); font-size: calc(var(--u) * 1.05); }
+  .persona .quote { font-family: var(--serif); font-size: calc(var(--u) * 1.4); color: var(--ink); line-height: 1.3; }
+  .gg { border-top: 1px solid var(--line); padding-top: calc(var(--u) * .9); font-size: calc(var(--u) * 1.1); }
+  .gg div { margin-bottom: calc(var(--u) * .4); }
+  .gg .k { font-weight: 600; font-size: calc(var(--u) * .85); letter-spacing: .06em; text-transform: uppercase; margin-right: 6px; }
+
+  /* Before / after table */
+  table { width: 100%; border-collapse: collapse; font-size: calc(var(--u) * 1.2); }
+  th { text-align: left; font-weight: 600; font-size: calc(var(--u) * .9); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: calc(var(--u) * .7) calc(var(--u) * 1); border-bottom: 1px solid var(--line); }
+  td { padding: calc(var(--u) * 1) calc(var(--u) * 1); border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+  td.after { color: var(--teal); }
+  td.c { text-align: center; }
+  .yes { color: var(--teal); font-weight: 600; } .no { color: #b9b4aa; }
+
+  /* Chrome */
+  .chrome { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; z-index: 10;
+    background: rgba(253,252,249,.9); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 99px; padding: 8px 14px; font-size: 13px; color: var(--muted); }
+  .chrome button { border: 0; background: transparent; cursor: pointer; color: var(--ink); width: 28px; height: 28px; border-radius: 50%; font-size: 16px; }
+  .chrome button:hover { background: var(--teal-soft); }
+  .dots { display: flex; gap: 6px; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all .2s; }
+  .dots i.on { background: var(--teal); width: 20px; border-radius: 99px; }
+  .brandmark { position: absolute; top: calc(var(--u) * 2.4); right: calc(var(--u) * 3); font-family: var(--serif); color: var(--muted); font-size: calc(var(--u) * 1.1); display: flex; align-items: center; gap: 8px; }
+  .pgno { position: absolute; bottom: calc(var(--u) * 2.4); right: calc(var(--u) * 3); font-size: calc(var(--u) * .9); color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: #fff; text-decoration: none; padding: calc(var(--u) * .9) calc(var(--u) * 1.8); border-radius: 99px; font-weight: 600; font-size: calc(var(--u) * 1.2); }
+  .btn.ghost { background: transparent; color: var(--teal); border: 2px solid var(--mint-b); }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1. Title -->
+  <section class="slide">
+    <div class="fill" style="display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:calc(var(--u)*4)">
+      <div>
+        <div class="eyebrow">Kindred · a personal CRM for a mutually beneficial community</div>
+        <h1 style="margin-top:calc(var(--u)*2.4)">Your people,<br/>and the right<br/>new ones.</h1>
+        <p class="lede">A little care goes a long way. Kindred helps you look after the relationships you have and meet the people who can help you grow, and whom you can help back.</p>
+      </div>
+      <div style="text-align:center">
+        <div class="bridge">
+          <div class="av c-peach">JL</div><span class="dash"></span>
+          <div class="av lg sprout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 10c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6z"/></svg></div>
+          <span class="dash"></span><div class="av c-lav">AP</div>
+        </div>
+        <p class="muted mt-s">You → the community → someone new</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problem -->
+  <section class="slide">
+    <div class="eyebrow">The problem</div>
+    <h2>We're more connected than ever, and still drifting apart.</h2>
+    <div class="grid g3 mt" style="flex:1">
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="big-num">~1 in 2</div>
+        <p class="mt-s"><b style="color:var(--ink)">US adults report feeling lonely.</b> Loneliness is now treated as a public-health issue, not just a personal one.</p>
+        <div class="src">Source: U.S. Surgeon General Advisory, <span class="em">Our Epidemic of Loneliness and Isolation</span>, 2023</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column">
+        <h3>We forget, and it isn't for lack of caring.</h3>
+        <ul class="clean x">
+          <li>Life gets busy and months slip by</li>
+          <li>Small details (a new job, a big move) get lost</li>
+          <li>Reaching out after a long silence feels awkward</li>
+        </ul>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column">
+        <h3>Finding help is scattered and one-way.</h3>
+        <ul class="clean x">
+          <li>Mentors, skills, trainings and volunteering are spread across LinkedIn, Meetup, Slack and word of mouth</li>
+          <li>People are cast as "takers" or "givers"</li>
+          <li>Generosity goes unseen, so it doesn't last</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Why existing tools fail -->
+  <section class="slide">
+    <div class="eyebrow">Problem statement</div>
+    <h2 style="max-width:26ch">People want to be good friends, colleagues and neighbors, but no tool helps them <span class="em teal">care</span> and <span class="em teal">connect</span> in one place.</h2>
+    <div class="mt">
+      <table>
+        <thead><tr><th></th><th>Built for</th><th>What's missing</th><th class="c">Remembers people</th><th class="c">Finds new help</th><th class="c">Two-way</th></tr></thead>
+        <tbody>
+          <tr><td>Social networks</td><td>Broadcasting &amp; feeds</td><td>Attention, not relationships</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+          <tr><td>Sales CRMs</td><td>Deals &amp; pipelines</td><td>Feels transactional for friendships</td><td class="c yes">✓</td><td class="c no">—</td><td class="c no">—</td></tr>
+          <tr><td>Personal CRMs</td><td>Contact lists</td><td>A solo tool with no community</td><td class="c yes">✓</td><td class="c no">—</td><td class="c no">—</td></tr>
+          <tr><td>Event / skill platforms</td><td>One-off events, gigs</td><td>Connections fade after the event</td><td class="c no">—</td><td class="c yes">✓</td><td class="c no">—</td></tr>
+          <tr style="background:var(--teal-soft)"><td>Kindred</td><td>Caring &amp; belonging</td><td class="after">Care + community + give &amp; take</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. Solution -->
+  <section class="slide">
+    <div class="eyebrow">The solution</div>
+    <h2>One calm place for the people you have, and the ones you'll meet.</h2>
+    <div class="grid g2 mt" style="flex:1">
+      <div class="soft half">
+        <div class="eyebrow">1 · Your people</div>
+        <h3>A personal CRM that feels like a notebook</h3>
+        <p class="muted">Three small suggestions a day. Private notes. Gentle reminders about life moments.</p>
+        <div class="mini"><div class="av c-peach">MC</div><div><b>A little hello to Maya</b><span>Ask how her new studio is coming along.</span></div></div>
+        <div class="mini"><div class="av c-mint">DL</div><div><b>Daniel's first week</b><span>Send a little encouragement on Friday.</span></div></div>
+      </div>
+      <div class="card half">
+        <div class="eyebrow">2 · The community</div>
+        <h3>A marketplace for giving and asking</h3>
+        <p class="muted">Mentors, skills, trainings and volunteers. Everyone posts offers <i>and</i> asks.</p>
+        <div class="mini"><div class="av c-lav">AP</div><div><b>Design mentoring <span class="pill" style="margin-left:6px">★ Good match</span></b><span>Aisha · 3 mutual connections</span></div></div>
+        <div class="mini"><div class="av c-mint">EB</div><div><b>Saturday food bank shift</b><span>East Bay Food Share · free · every Saturday</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. How it works -->
+  <section class="slide">
+    <div class="eyebrow">How it works</div>
+    <h2>A loop where everyone gives a little and gets a little.</h2>
+    <div class="fill">
+      <div class="loop">
+        <div class="step"><div class="n">1</div><h3>Remember</h3><p>Jot the small details. Kindred brings them back at the right moment.</p></div>
+        <div class="step"><div class="n">2</div><h3>Reach out</h3><p>Today's three suggestions. No backlog, no guilt.</p></div>
+        <div class="step"><div class="n">3</div><h3>Ask &amp; offer</h3><p>Post what you need and what you can give. We match both ways.</p></div>
+        <div class="step"><div class="n">4</div><h3>Meet</h3><p>Warm intros through shared circles, then real tables and walks.</p></div>
+        <div class="step"><div class="n">5</div><h3>Belong</h3><p>New connections join your people, and you look after them too.</p></div>
+      </div>
+      <div class="return">↺ &nbsp;Every new connection feeds back into step 1. The community grows as you care for it.</div>
+    </div>
+  </section>
+
+  <!-- 6. Who benefits -->
+  <section class="slide">
+    <div class="eyebrow">Who it's for</div>
+    <h2>Four kinds of people. Each one gives and each one gets.</h2>
+    <div class="grid g4 mt" style="flex:1">
+      <div class="card persona">
+        <div class="head"><div class="av c-peach">JL</div><div class="who"><b>The Connector</b><span>Jamie, 34, designer</span></div></div>
+        <p class="quote">"I know so many people, but I'm terrible at keeping up."</p>
+        <div class="gg"><div><span class="k teal">Gets</span>Never forgets the small details; stays a good friend</div><div><span class="k" style="color:#7a4f9c">Gives</span>Thoughtful intros and design mentoring</div></div>
+      </div>
+      <div class="card persona">
+        <div class="head"><div class="av c-sand">LM</div><div class="who"><b>The Seeker</b><span>Leo, 22, new grad</span></div></div>
+        <p class="quote">"I don't know anyone in this industry, or this city."</p>
+        <div class="gg"><div><span class="k teal">Gets</span>A mentor, new skills and a place to belong</div><div><span class="k" style="color:#7a4f9c">Gives</span>Energy, fresh skills, volunteer hours</div></div>
+      </div>
+      <div class="card persona">
+        <div class="head"><div class="av c-sky">TA</div><div class="who"><b>The Giver</b><span>Tom, 66, retired engineer</span></div></div>
+        <p class="quote">"I have decades of know-how and nobody to pass it to."</p>
+        <div class="gg"><div><span class="k teal">Gets</span>Purpose, new friends, being seen for what they give</div><div><span class="k" style="color:#7a4f9c">Gives</span>Mentoring, repair skills, workshops</div></div>
+      </div>
+      <div class="card persona">
+        <div class="head"><div class="av c-mint">JP</div><div class="who"><b>The Circle Host</b><span>June, chef, runs a breakfast club</span></div></div>
+        <p class="quote">"Running a group means a hundred WhatsApp threads."</p>
+        <div class="gg"><div><span class="k teal">Gets</span>Simple RSVPs, new members, a circle that keeps going</div><div><span class="k" style="color:#7a4f9c">Gives</span>Gatherings, the community's real-world heartbeat</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. How they benefit -->
+  <section class="slide">
+    <div class="eyebrow">How they benefit</div>
+    <h2>From drifting to belonging.</h2>
+    <div class="mt">
+      <table>
+        <thead><tr><th></th><th>Before Kindred</th><th>With Kindred</th></tr></thead>
+        <tbody>
+          <tr><td>Connector</td><td>Guilt about friends they haven't called; details forgotten</td><td class="after">Three gentle nudges a day; notes come back at the right moment</td></tr>
+          <tr><td>Seeker</td><td>Cold LinkedIn messages that go unanswered</td><td class="after">Warm, matched intros through shared circles</td></tr>
+          <tr><td>Giver</td><td>Willing to help but unsure where or who</td><td class="after">Clear offers, matched to real asks; their generosity is visible</td></tr>
+          <tr><td>Circle host</td><td>Scattered chats; members drift away</td><td class="after">Members who also look after each other, which keeps the circle going</td></tr>
+          <tr><td>Community</td><td>A few people do all the giving</td><td class="after">A give &amp; take balance for every member makes reciprocity normal</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 8. Principles -->
+  <section class="slide">
+    <div class="eyebrow">What makes it different</div>
+    <h2>Designed to feel like care, not a CRM.</h2>
+    <div class="grid g4 mt" style="flex:1">
+      <div class="soft"><h3>Calm, not guilt</h3><p class="muted mt-s">No red badges or "37 overdue follow-ups". Three small possibilities and nothing to catch up on.</p></div>
+      <div class="card"><h3>Private by default</h3><p class="muted mt-s">Notes are only for you. You choose what the community sees: your offers, asks and circles.</p></div>
+      <div class="soft"><h3>Give &amp; take</h3><p class="muted mt-s">Every profile has offers and asks. Matching runs both ways, so nobody is just a taker.</p></div>
+      <div class="card"><h3>Real-world first</h3><p class="muted mt-s">Walks, breakfasts and workshops. Warm intros over cold DMs.</p></div>
+    </div>
+  </section>
+
+  <!-- 9. Success & model -->
+  <section class="slide">
+    <div class="eyebrow">How we'll know it's working</div>
+    <h2>Measure care, not clicks.</h2>
+    <div class="grid g2 mt" style="flex:1">
+      <div class="card">
+        <h3>Success metrics</h3>
+        <ul class="clean">
+          <li><b>Weekly care actions:</b> reach-outs, notes, moments logged</li>
+          <li><b>Reciprocity:</b> % of members with at least one offer <i>and</i> one ask</li>
+          <li><b>Match acceptance rate</b> in the marketplace</li>
+          <li><b>Lasting ties:</b> 2+ interactions within 60 days</li>
+          <li><b>Gathering attendance</b></li>
+        </ul>
+      </div>
+      <div class="soft">
+        <h3>Sustainable model (to explore)</h3>
+        <ul class="clean">
+          <li><b>Free</b> core for individuals: your people and the community</li>
+          <li><b>Circle Host tools:</b> RSVPs, rotating hosts, member insights</li>
+          <li><b>Partners:</b> nonprofits, libraries and employers sponsoring mentoring and volunteer programs</li>
+          <li>Never selling personal notes or data</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Ask -->
+  <section class="slide">
+    <div class="fill" style="display:grid;grid-template-columns:1.2fr 1fr;gap:calc(var(--u)*4);align-items:center">
+      <div>
+        <div class="eyebrow">Next step</div>
+        <h1 style="font-size:calc(var(--u)*5.2);margin-top:calc(var(--u)*1.6)">Let's start with<br/>a few good circles.</h1>
+        <p class="lede">An 8-week pilot with 3 local circles and about 100 members to test whether gentle nudges and two-way matching create lasting relationships.</p>
+        <div style="display:flex;gap:calc(var(--u)*1);margin-top:calc(var(--u)*2.4)">
+          <a class="btn" href="index.html">See the demo ↗</a>
+          <a class="btn ghost" href="PRODUCT.md">Read the product brief</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">We're looking for</div>
+        <ul class="clean">
+          <li>Circle hosts to join the pilot</li>
+          <li>Mentors and volunteers to seed the marketplace</li>
+          <li>Partners: community orgs and libraries</li>
+          <li>Feedback on the demo</li>
+        </ul>
+        <p class="em mt-s" style="font-size:calc(var(--u)*1.6);color:var(--ink)">A little care goes a long way.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <button id="prev" aria-label="Previous">‹</button>
+  <div class="dots" id="dots"></div>
+  <span id="count"></span>
+  <button id="next" aria-label="Next">›</button>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  let i = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+
+  slides.forEach((s, n) => {
+    s.insertAdjacentHTML('beforeend',
+      `<div class="brandmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d5e55" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 10c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6z"/></svg>Kindred</div>
+       <div class="pgno">${n + 1} / ${slides.length}</div>`);
+    const d = document.createElement('i');
+    d.onclick = () => show(n);
+    dots.appendChild(d);
+  });
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    document.getElementById('count').textContent = `${i + 1} / ${slides.length}`;
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+    if (e.key === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  });
+  let x0 = null;
+  document.addEventListener('touchstart', e => x0 = e.touches[0].clientX);
+  document.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+
+  show(i);
+</script>
+</body>
+</html>
