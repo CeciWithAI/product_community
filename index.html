@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kindred — your people, and the right new ones</title>
+<title>Doorway — your people, and the right new ones</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%229%22%20fill%3D%22%231d5e55%22/%3E%3Cpath%20d%3D%22M11.5%2025V14.5a4.5%204.5%200%200%201%209%200V25z%22%20fill%3D%22%23f3ddd0%22/%3E%3Cpath%20d%3D%22M11.5%2025h9l3.5%203.5H8z%22%20fill%3D%22%23f3ddd0%22%20opacity%3D%22.45%22/%3E%3Cpath%20d%3D%22M9.5%2025V14.5a6.5%206.5%200%200%201%2013%200V25%22%20fill%3D%22none%22%20stroke%3D%22%23fdfcf9%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M7%2025h18%22%20stroke%3D%22%23fdfcf9%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -42,6 +43,9 @@
 
   /* ---------- Top row ---------- */
   .topbar { display: flex; align-items: center; gap: 24px; padding-top: 40px; }
+  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); text-decoration: none; letter-spacing: -.005em; }
+  .brand .logo { width: 36px; height: 36px; }
+  .topbar .divider { width: 1px; height: 22px; background: var(--line); }
   .tabs { display: flex; gap: 22px; margin-left: auto; }
   .tab {
     border: 0; background: transparent; padding: 6px 0; border-bottom: 2px solid transparent;
@@ -356,6 +360,7 @@
     .circles { grid-template-columns: repeat(2, 1fr); }
     h1 { font-size: 52px; }
     .topbar .search { width: 240px; }
+    .topbar .divider, #today-date { display: none; }
     .p-card { position: static; }
   }
   @media (max-width: 680px) {
@@ -372,6 +377,8 @@
 <main class="wrap">
 <!-- ============ TOP ROW (as in the design: date left, search right) ============ -->
 <header class="topbar">
+  <a class="brand" href="#" onclick="goto('people'); return false;"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#1d5e55"/><path d="M11.5 25V14.5a4.5 4.5 0 0 1 9 0V25z" fill="#f3ddd0"/><path d="M11.5 25h9l3.5 3.5H8z" fill="#f3ddd0" opacity=".45"/><path d="M9.5 25V14.5a6.5 6.5 0 0 1 13 0V25" fill="none" stroke="#fdfcf9" stroke-width="1.8" stroke-linecap="round"/><path d="M7 25h18" stroke="#fdfcf9" stroke-width="1.8" stroke-linecap="round"/></svg>Doorway</a>
+  <span class="divider"></span>
   <div class="eyebrow" id="today-date"></div>
   <div class="tabs">
     <button class="tab active" data-view="people">Your people</button>
@@ -587,7 +594,7 @@ const people = [
   { id: 'june', name: 'June Park', ini: 'JP', color: 'sand', role: 'Chef, hosts The Sunday Table', met: 'Through Sofia', rhythm: 'Seasonal', last: 18, closeness: .6,
     notes: [{ q: 'Collects old cookbooks. Ask about the 1960s Korean one.', w: 'September' }],
     moments: [], circles: ['The Sunday Table'] },
-  { id: 'omar', name: 'Omar Haddad', ini: 'OH', color: 'sky', role: 'Design director, my mentor', met: 'Kindred mentorship, 2025', rhythm: 'Monthly', last: 52, closeness: .5,
+  { id: 'omar', name: 'Omar Haddad', ini: 'OH', color: 'sky', role: 'Design director, my mentor', met: 'Doorway mentorship, 2025', rhythm: 'Monthly', last: 52, closeness: .5,
     notes: [{ q: 'Suggested I lead the next design critique. Tell him how it went!', w: 'August' }],
     moments: ['Daughter starts college'], circles: ['Design & a little life'] },
   { id: 'priya', name: 'Priya Nair', ini: 'PN', color: 'peach', role: 'Climbing buddy, data scientist', met: 'Bouldering gym', rhythm: 'Weekly', last: 6, closeness: .8,
@@ -595,7 +602,7 @@ const people = [
     moments: [], circles: [] },
 ];
 
-const aisha = { id: 'aisha', name: 'Aisha Patel', ini: 'AP', color: 'lav', role: 'Senior designer · offers mentoring', met: 'Kindred match', rhythm: 'New', last: null, closeness: .15,
+const aisha = { id: 'aisha', name: 'Aisha Patel', ini: 'AP', color: 'lav', role: 'Senior designer · offers mentoring', met: 'Doorway match', rhythm: 'New', last: null, closeness: .15,
   notes: [], moments: [], circles: ['Design & a little life', 'The Sunday Table', 'Spanish over coffee'], isNew: true };
 
 const profile = {
@@ -680,7 +687,7 @@ function progressBlock(p, big = false) {
 const AI_IDEAS = {
   maya: [
     { short: 'Ask how the studio build-out is going', step: 'Ask Maya how the studio is coming along, and offer to help before the opening.', why: 'Her studio opens in November and you last spoke <b>3 weeks ago</b>. You noted she wants it to feel like a kitchen table.', draft: 'Hi Maya! I keep thinking about your “kitchen table, not an office” studio. How’s it coming along? If you need an extra pair of hands (or eyes) before the opening, I’m in.' },
-    { short: 'Intro her to Aisha for brand feedback', step: 'Introduce Maya to Aisha. A fresh design eye could help with the studio’s brand.', why: 'Aisha offers design mentoring and <b>shares a circle</b> with Maya.', draft: 'Hi Maya! I just met Aisha through Kindred. She’s a lovely senior designer and I think you two would get on. Want an intro before the opening?' },
+    { short: 'Intro her to Aisha for brand feedback', step: 'Introduce Maya to Aisha. A fresh design eye could help with the studio’s brand.', why: 'Aisha offers design mentoring and <b>shares a circle</b> with Maya.', draft: 'Hi Maya! I just met Aisha through Doorway. She’s a lovely senior designer and I think you two would get on. Want an intro before the opening?' },
   ],
   daniel: [
     { short: 'Send encouragement on Friday', step: 'Send Daniel a little encouragement on Friday, at the end of his first week.', why: 'He’s <b>new to managing people</b> and told you he was nervous.', draft: 'Hey Daniel, you made it through week one! Being nervous just means you care, and your team is lucky. Coffee next week to hear everything?' },
@@ -888,7 +895,7 @@ function suggestHello(p) {
   const first = p.name.split(' ')[0];
   if (p.id === 'maya') return `Hi ${first}! I was just thinking about you. How’s the studio coming along? Still going for “kitchen table, not office”? Would love to see it.`;
   if (p.id === 'daniel') return `Hey ${first}, hope the first week has been kind to you. You’re going to be a great lead. Coffee soon?`;
-  if (p.isNew) return `Hi ${first}! Kindred says we share three circles. I’d love to hear about your mentoring, and happy to make intros on my side too.`;
+  if (p.isNew) return `Hi ${first}! Doorway says we share three circles. I’d love to hear about your mentoring, and happy to make intros on my side too.`;
   return `Hi ${first}, it’s been a little while. Thinking of you. How are things?`;
 }
 function sendHello(id) {
@@ -985,7 +992,7 @@ function sendConnect(id) {
   // Add the person to My People (demo: auto-accepted)
   if (l.who === aisha) aisha.added = true;
   else if (!people.find(p => p.name === l.who.name)) {
-    people.push({ id: 'p' + id, name: l.who.name, ini: l.who.ini, color: l.who.color, role: l.who.role, met: 'Kindred community', rhythm: 'New', last: null, closeness: .1, notes: [{ q: `Connected about “${l.title}”.`, w: 'Just now' }], moments: [], circles: [], isNew: true });
+    people.push({ id: 'p' + id, name: l.who.name, ini: l.who.ini, color: l.who.color, role: l.who.role, met: 'Doorway community', rhythm: 'New', last: null, closeness: .1, notes: [{ q: `Connected about “${l.title}”.`, w: 'Just now' }], moments: [], circles: [], isNew: true });
   }
   renderMarket(); renderFaces();
   toast(`${l.who.name.split(' ')[0]} said yes, and is now in your people 🌱`);
