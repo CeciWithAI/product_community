@@ -259,7 +259,7 @@
   .listing .tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .listing .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--line); }
   .listing .facts { font-size: 13px; color: var(--muted); }
-  .match { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: #8a5a2b; background: #f7ead9; padding: 4px 10px; border-radius: 99px; align-self: flex-start; }
+  .match { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--teal); background: var(--teal-soft); padding: 4px 10px; border-radius: 99px; align-self: flex-start; }
   .kind { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
   .kind.offer { color: var(--teal); }
   .kind.ask { color: #7a4f9c; }
@@ -278,6 +278,32 @@
   .p-card h2 { font-size: 34px; }
   .p-card .headline { color: var(--muted); margin: 6px 0 18px; }
   .p-card .bio { text-align: left; color: var(--text); font-size: 15px; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 18px; }
+  /* ---------- Credits ---------- */
+  .coin { display: inline-block; vertical-align: -2px; }
+  .credits { text-align: left; background: var(--bg); border-radius: 18px; padding: 16px 18px 14px; margin: 4px 0 18px; }
+  .cr-top { display: flex; justify-content: space-between; align-items: center; }
+  .cr-num { font-family: var(--serif); font-size: 30px; color: var(--ink); display: flex; align-items: center; gap: 8px; line-height: 1; }
+  .cr-num small { font-family: var(--sans); font-size: 14px; color: var(--muted); }
+  .cr-num .coin { color: #b8862f; }
+  .cr-level { font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: #fbf1dc; color: #7a5a1c; }
+  .cr-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; }
+  .cr-bar i { height: 12px; border-radius: 99px; background: #e6e3db; overflow: hidden; display: block; }
+  .cr-bar i span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #e3bf78, #b8862f); animation: grow 1s cubic-bezier(.2,.8,.2,1); }
+  .cr-scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 6px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .cr-scale span.on { color: #7a5a1c; font-weight: 600; }
+  .cr-next { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .cr-next b { color: var(--ink); }
+  .cr-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: #7a5a1c; background: #fbf1dc; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+  .cred {
+    margin-left: auto; display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.15;
+    border: 1px solid #ecd9ae; background: #fffaf0; border-radius: 12px; padding: 5px 10px;
+  }
+  .cred b { font-size: 14px; color: #7a5a1c; display: flex; align-items: center; gap: 4px; }
+  .cred b .coin { color: #b8862f; }
+  .cred span { font-size: 10.5px; color: #9a7a3c; letter-spacing: .03em; white-space: nowrap; }
+  .credit-note { display: flex; gap: 10px; align-items: flex-start; background: #fffaf0; border: 1px solid #f0e2c2; border-radius: 14px; padding: 12px 14px; font-size: 13.5px; color: var(--muted); margin: -4px 0 16px; }
+  .credit-note .coin { color: #b8862f; margin-top: 2px; flex-shrink: 0; }
+  .add-row select { border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--card); outline: none; }
   .p-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
   .p-stats .num { font-family: var(--serif); font-size: 28px; color: var(--ink); }
   .p-stats .lbl { font-size: 12.5px; color: var(--muted); }
@@ -436,7 +462,7 @@
       <div class="card gathering">
         <div class="eyebrow">Your next gathering</div>
         <h3>The Sunday Table</h3>
-        <div class="when">Breakfast &amp; new beginnings · November 1 · 10:00 am · June's Kitchen</div>
+        <div class="when">Breakfast &amp; new beginnings · November 1 · 10:00 am · June's Kitchen, Nørrebro</div>
         <div class="stack" id="gathering-stack"></div>
         <div class="going" id="rsvp">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
@@ -453,7 +479,7 @@
     <div>
       <div class="eyebrow">The community</div>
       <h1 style="margin-top:18px">Give a little.<br/>Get a little.</h1>
-      <p>Mentors, skills, trainings and volunteer moments, offered by neighbors and peers. Every connection you make here becomes part of your people.</p>
+      <p>Mentors, skills, trainings and volunteer moments, offered by neighbors and peers across Denmark. Every connection you make here becomes part of your people.</p>
     </div>
     <div class="card balance-card">
       <div class="eyebrow muted">Your give &amp; take this season</div>
@@ -461,6 +487,7 @@
         <div><div class="num" id="bal-give">7</div><div class="lbl">times you helped</div></div>
         <div><div class="num" id="bal-take">4</div><div class="lbl">times you were helped</div></div>
         <div><div class="num" id="bal-conn">3</div><div class="lbl">new connections</div></div>
+        <div><div class="num" id="bal-cred" style="color:#7a5a1c">0</div><div class="lbl">your credits</div></div>
       </div>
     </div>
   </div>
@@ -474,9 +501,9 @@
     </div>
   </div>
   <div class="toolbar">
-    <label class="search" style="width:340px">
+    <label class="search" style="width:270px">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="mpSearch" placeholder="Try “portfolio”, “Spanish”, “food bank”" />
+      <input id="mpSearch" placeholder="Try “Danish” or “job”" />
     </label>
     <select class="flt" id="fFormat">
       <option value="">Any format</option>
@@ -489,6 +516,10 @@
     <label class="muted" style="display:flex;gap:8px;align-items:center;font-size:14px">
       <input type="checkbox" id="fMatch" /> Good matches only
     </label>
+    <select class="flt" id="fSort">
+      <option value="match">Sort: best match</option>
+      <option value="credits">Sort: most credits</option>
+    </select>
     <div class="grow"></div>
     <button class="btn" id="postBtn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -512,7 +543,8 @@
     <div class="card p-card">
       <div class="av xl c-peach">JL</div>
       <h2>Jamie Lin</h2>
-      <div class="headline">Product designer · Oakland, CA</div>
+      <div class="headline">Product designer · Copenhagen</div>
+      <div class="credits" id="creditsBox"></div>
       <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
         <span class="pill">Connector</span><span class="pill ghost">Member since 2025</span>
       </div>
@@ -521,15 +553,20 @@
         <div><div class="num">4</div><div class="lbl">circles</div></div>
         <div><div class="num">12</div><div class="lbl">intros made</div></div>
       </div>
-      <div class="bio">I design calm software and host the occasional dinner. I love introducing people who should know each other. Currently learning to speak up more, and to speak Spanish.</div>
+      <div class="bio">I design calm software and host the occasional dinner. I love introducing people who should know each other. Moved to Copenhagen in 2025. Currently learning to speak up more, and to speak Danish.</div>
     </div>
 
     <div>
       <div class="card p-block">
         <div class="p-block-head"><h3>What I can offer</h3><span class="kind offer">Visible to community</span></div>
         <p class="hint">The ways you're happy to help. These appear in the marketplace.</p>
+        <div class="credit-note"><span class="coin-slot"></span><span><b style="color:var(--ink)">How credits work:</b> you earn credits each time you help someone, and spend them when you ask for help. 1 credit ≈ 1 hour of someone's time. Set what each offer earns.</span></div>
         <div class="oa-list" id="offersList"></div>
-        <div class="add-row"><input id="addOffer" placeholder="Add something you can offer…" /><button class="btn ghost" data-add="offers">Add</button></div>
+        <div class="add-row">
+          <input id="addOffer" placeholder="Add something you can offer…" />
+          <select id="addOfferCr" title="Credits earned per session"><option value="1">1 credit</option><option value="2" selected>2 credits</option><option value="3">3 credits</option><option value="4">4 credits</option></select>
+          <button class="btn ghost" data-add="offers">Add</button>
+        </div>
       </div>
 
       <div class="card p-block">
@@ -544,7 +581,7 @@
         <p class="hint" style="margin-top:6px">A healthy community is a two-way street. Yours looks lovely.</p>
         <div class="gt"><div class="g" style="flex:7"></div><div class="t" style="flex:4"></div></div>
         <div class="gt-legend">
-          <span><span class="dot" style="background:var(--teal)"></span>Gave: 4 mentoring sessions, 2 portfolio reviews, 1 food bank shift</span>
+          <span><span class="dot" style="background:var(--teal)"></span>Gave: 4 mentoring sessions, 2 portfolio reviews, 1 food share shift</span>
           <span><span class="dot" style="background:var(--lav-b)"></span>Received: 4</span>
         </div>
       </div>
@@ -555,8 +592,8 @@
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <span class="pill">🌿 Design &amp; a little life</span>
           <span class="pill">🍳 The Sunday Table</span>
-          <span class="pill">🗣️ Spanish over coffee</span>
-          <span class="pill">🥕 East Bay Food Share</span>
+          <span class="pill">🗣️ Danish over coffee</span>
+          <span class="pill">🍲 Nørrebro Food Share</span>
         </div>
       </div>
     </div>
@@ -577,6 +614,7 @@ const ICON = {
   sprout: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 10c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6z"/></svg>',
   check: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
   x: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  coin: '<svg class="coin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16.2s-4.2-2.5-4.2-5.3A2.2 2.2 0 0 1 12 9.7a2.2 2.2 0 0 1 4.2 1.2c0 2.8-4.2 5.3-4.2 5.3z" fill="currentColor" stroke="none"/></svg>',
   star: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.8 6.4 20.1l1.4-6.3L3 9.5l6.4-.6z"/></svg>',
 };
 
@@ -589,8 +627,8 @@ const people = [
     notes: [{ q: 'Nervous about managing people for the first time.', w: 'Last week' }],
     moments: ['First week at new job (Friday)'], circles: ['The Sunday Table'] },
   { id: 'sofia', name: 'Sofia Ruiz', ini: 'SR', color: 'lav', role: 'Teacher & neighbor', met: 'Next door, since 2023', rhythm: 'Weekly', last: 2, closeness: .95,
-    notes: [{ q: 'Practicing Spanish together on Thursdays. Her mom visits in December.', w: 'Sunday' }],
-    moments: ['Her mom visits in December'], circles: ['Spanish over coffee'] },
+    notes: [{ q: 'Practicing Danish together on Thursdays. Her mom visits in December.', w: 'Sunday' }],
+    moments: ['Her mom visits in December'], circles: ['Danish over coffee'] },
   { id: 'june', name: 'June Park', ini: 'JP', color: 'sand', role: 'Chef, hosts The Sunday Table', met: 'Through Sofia', rhythm: 'Seasonal', last: 18, closeness: .6,
     notes: [{ q: 'Collects old cookbooks. Ask about the 1960s Korean one.', w: 'September' }],
     moments: [], circles: ['The Sunday Table'] },
@@ -598,22 +636,23 @@ const people = [
     notes: [{ q: 'Suggested I lead the next design critique. Tell him how it went!', w: 'August' }],
     moments: ['Daughter starts college'], circles: ['Design & a little life'] },
   { id: 'priya', name: 'Priya Nair', ini: 'PN', color: 'peach', role: 'Climbing buddy, data scientist', met: 'Bouldering gym', rhythm: 'Weekly', last: 6, closeness: .8,
-    notes: [{ q: 'Training for her first outdoor climb in Bishop.', w: 'Last week' }],
+    notes: [{ q: 'Training for her first outdoor climb at Kullaberg.', w: 'Last week' }],
     moments: [], circles: [] },
 ];
 
 const aisha = { id: 'aisha', name: 'Aisha Patel', ini: 'AP', color: 'lav', role: 'Senior designer · offers mentoring', met: 'Doorway match', rhythm: 'New', last: null, closeness: .15,
-  notes: [], moments: [], circles: ['Design & a little life', 'The Sunday Table', 'Spanish over coffee'], isNew: true };
+  notes: [], moments: [], circles: ['Design & a little life', 'The Sunday Table', 'Danish over coffee'], isNew: true };
 
 const profile = {
+  credits: 128,
   offers: [
-    { t: 'Design mentoring', d: '1:1, twice a month · Free' },
-    { t: 'Portfolio reviews', d: 'Remote · 30 min' },
-    { t: 'Thoughtful intros', d: 'To designers & founders in the Bay' },
+    { t: 'Design mentoring', d: '1:1, twice a month', cr: 2 },
+    { t: 'Portfolio reviews', d: 'Remote · 30 min', cr: 1 },
+    { t: 'Thoughtful intros', d: 'To designers & founders in Copenhagen', cr: 1 },
   ],
   asks: [
     { t: 'Public speaking', d: 'Getting comfortable leading talks' },
-    { t: 'Spanish practice', d: 'Conversation partner, intermediate' },
+    { t: 'Danish practice', d: 'Conversation partner, beginner' },
     { t: 'Woodworking basics', d: 'Want to build a bookshelf' },
   ],
 };
@@ -627,29 +666,40 @@ const CATS = [
 ];
 
 let listings = [
-  { id: 1, cat: 'mentor', kind: 'offer', who: aisha, title: 'Design mentoring for mid-career designers', desc: 'Career growth, critique, finding your voice. I’ve mentored 20+ designers through promotions and pivots.', tags: ['design', 'career', 'mentoring'], format: ['1:1', 'Remote'], cost: 'Free', avail: '2 spots this month', mutual: 3 },
-  { id: 2, cat: 'mentor', kind: 'offer', who: { name: 'Marcus Bell', ini: 'MB', color: 'sky', role: 'Keynote speaker & coach' }, title: 'Public speaking coaching — find your calm on stage', desc: 'Practice talks in a safe room. We’ll work on structure, breath and the first 30 seconds.', tags: ['public speaking', 'confidence'], format: ['1:1', 'In person'], cost: 'Exchange', avail: 'Thursdays', mutual: 2 },
-  { id: 3, cat: 'skill', kind: 'offer', who: { name: 'Lucía Torres', ini: 'LT', color: 'peach', role: 'Translator' }, title: 'Spanish conversation over coffee', desc: 'Relaxed weekly chats for intermediate learners. Happy to swap for help with my website.', tags: ['spanish', 'language'], format: ['Group', 'In person'], cost: 'Exchange', avail: 'Saturday mornings', mutual: 1 },
-  { id: 4, cat: 'skill', kind: 'offer', who: { name: 'Ben Okafor', ini: 'BO', color: 'sand', role: 'Furniture maker' }, title: 'Woodworking basics in my garage shop', desc: 'Learn safe tool use and build a small shelf over three Sundays. All tools provided.', tags: ['woodworking', 'making'], format: ['Group', 'In person'], cost: 'Paid', avail: 'Starts Nov 9', mutual: 0 },
-  { id: 5, cat: 'training', kind: 'offer', who: { name: 'Grace Kim', ini: 'GK', color: 'mint', role: 'Product manager' }, title: 'Intro to product thinking (4-week cohort)', desc: 'A small, friendly cohort for career changers. Real case studies, no jargon.', tags: ['product', 'career change'], format: ['Group', 'Remote'], cost: 'Free', avail: '6 of 10 seats left', mutual: 1 },
-  { id: 6, cat: 'training', kind: 'offer', who: { name: 'Hannah Wright', ini: 'HW', color: 'lav', role: 'Community nurse' }, title: 'First aid & CPR refresher', desc: 'Two-hour hands-on session. Certificate included. Great for parents and gathering hosts.', tags: ['first aid', 'safety'], format: ['Group', 'In person'], cost: 'Paid', avail: 'Nov 15', mutual: 0 },
-  { id: 7, cat: 'volunteer', kind: 'offer', who: { name: 'East Bay Food Share', ini: 'EB', color: 'mint', role: 'Community circle' }, title: 'Saturday food bank shift', desc: 'Sort and pack groceries for 200 families. Friendly crew, coffee provided, no experience needed.', tags: ['food', 'volunteering'], format: ['Group', 'In person'], cost: 'Free', avail: 'Every Saturday 9–12', mutual: 4 },
-  { id: 8, cat: 'volunteer', kind: 'offer', who: { name: 'Tom Alvarez', ini: 'TA', color: 'sky', role: 'Retired engineer' }, title: 'Fix-it café: repair, don’t replace', desc: 'Bring a broken lamp or toaster and we’ll fix it together. Volunteers with any skill welcome.', tags: ['repair', 'making', 'volunteering'], format: ['Group', 'In person'], cost: 'Free', avail: 'First Sunday monthly', mutual: 1 },
-  { id: 9, cat: 'mentor', kind: 'ask', who: { name: 'Leo Martins', ini: 'LM', color: 'sand', role: 'Design student' }, title: 'Looking for a design mentor before graduation', desc: 'Final-year student. Would love feedback on my portfolio and how to approach my first job search.', tags: ['design', 'portfolio', 'mentoring'], format: ['1:1', 'Remote'], cost: 'Free', avail: 'Flexible', mutual: 1 },
-  { id: 10, cat: 'skill', kind: 'ask', who: { name: 'Nadia Rahman', ini: 'NR', color: 'peach', role: 'Bakery owner' }, title: 'Help redesigning my bakery’s menu & sign', desc: 'Small neighborhood bakery. Can pay in bread forever, or teach sourdough.', tags: ['design', 'branding'], format: ['1:1', 'In person'], cost: 'Exchange', avail: 'This month', mutual: 2 },
-  { id: 11, cat: 'volunteer', kind: 'ask', who: { name: 'Riverside Library', ini: 'RL', color: 'mint', role: 'Community circle' }, title: 'Volunteers for teen career day', desc: 'Share your job with high-schoolers in 15-minute table chats. Designers especially wanted!', tags: ['career', 'volunteering', 'design'], format: ['Group', 'In person'], cost: 'Free', avail: 'Nov 20', mutual: 0 },
-  { id: 12, cat: 'training', kind: 'ask', who: { name: 'Chris Doyle', ini: 'CD', color: 'lav', role: 'Career changer' }, title: 'Seeking intros to product designers', desc: 'Moving from teaching into UX. Looking for 2–3 short chats with working designers.', tags: ['intros', 'career change', 'design'], format: ['1:1', 'Remote'], cost: 'Free', avail: 'Weekday evenings', mutual: 1 },
+  { id: 1, cat: 'mentor', kind: 'offer', who: aisha, title: 'Design mentoring for internationals in Copenhagen', desc: 'Career growth, critique and finding your voice in a Danish workplace. I moved here 6 years ago and have mentored 20+ designers.', tags: ['design', 'career', 'mentoring'], format: ['1:1', 'Remote'], cost: 'Free', avail: '2 spots this month', mutual: 3 },
+  { id: 13, cat: 'mentor', kind: 'offer', who: { name: 'Priyanka Rao', ini: 'PR', color: 'sand', role: 'HR partner · 8 years in Denmark' }, title: 'Your first job in Denmark: CVs, interviews & work culture', desc: 'Flat hierarchies, Friday breakfast, 4 pm pickups. I’ll help you tailor your CV and understand how Danish workplaces really work.', tags: ['career', 'job', 'mentoring'], format: ['1:1', 'Remote'], cost: 'Free', avail: 'Wednesday evenings', mutual: 2 },
+  { id: 2, cat: 'mentor', kind: 'offer', who: { name: 'Mads Jørgensen', ini: 'MJ', color: 'sky', role: 'Speaker & communication coach' }, title: 'Public speaking coaching: find your calm on stage', desc: 'Practice talks in English or Danish in a safe room. We’ll work on structure, breath and the first 30 seconds.', tags: ['public speaking', 'confidence'], format: ['1:1', 'In person'], cost: 'Exchange', avail: 'Thursdays · Østerbro', mutual: 2 },
+  { id: 3, cat: 'skill', kind: 'offer', who: { name: 'Sofie Nielsen', ini: 'SN', color: 'peach', role: 'Primary school teacher' }, title: 'Danish conversation over coffee', desc: 'Relaxed weekly chats for beginners: everyday Danish, no grammar homework. Happy to swap for help with my website.', tags: ['danish', 'language'], format: ['Group', 'In person'], cost: 'Exchange', avail: 'Saturday mornings · Vesterbro', mutual: 1 },
+  { id: 14, cat: 'skill', kind: 'offer', who: { name: 'Lars Mikkelsen', ini: 'LM', color: 'mint', role: 'Retired civil servant' }, title: 'Making sense of MitID, e-Boks & tax letters', desc: 'Bring the letters you don’t understand. We’ll go through Danish paperwork together, step by step, over coffee.', tags: ['paperwork', 'newcomers'], format: ['Group', 'In person'], cost: 'Free', avail: 'Second Tuesday · Nørrebro Library', mutual: 1 },
+  { id: 4, cat: 'skill', kind: 'offer', who: { name: 'Anders Holm', ini: 'AH', color: 'sand', role: 'Furniture maker' }, title: 'Woodworking basics at our makerspace', desc: 'Learn safe tool use and build a small shelf in Danish-design style over three Sundays. All tools provided.', tags: ['woodworking', 'making'], format: ['Group', 'In person'], cost: 'Paid', avail: 'Starts Nov 9 · Nordvest', mutual: 0 },
+  { id: 5, cat: 'training', kind: 'offer', who: { name: 'Ingrid Larsen', ini: 'IL', color: 'mint', role: 'Product manager' }, title: 'Intro to product thinking (4-week cohort)', desc: 'A small, friendly cohort for career changers in Denmark. Real case studies from Danish startups, no jargon.', tags: ['product', 'career change'], format: ['Group', 'Remote'], cost: 'Free', avail: '6 of 10 seats left', mutual: 1 },
+  { id: 6, cat: 'training', kind: 'offer', who: { name: 'Mette Kristensen', ini: 'MK', color: 'lav', role: 'Nurse' }, title: 'First aid course in English', desc: 'A hands-on førstehjælp session taught in English. Great for new parents and anyone hosting gatherings.', tags: ['first aid', 'safety'], format: ['Group', 'In person'], cost: 'Paid', avail: 'Nov 15 · Frederiksberg', mutual: 0 },
+  { id: 7, cat: 'volunteer', kind: 'offer', who: { name: 'Nørrebro Food Share', ini: 'NF', color: 'mint', role: 'Community circle' }, title: 'Saturday food share shift', desc: 'Sort and share surplus food with local families. Friendly crew, coffee and rugbrød provided, no Danish needed.', tags: ['food', 'volunteering'], format: ['Group', 'In person'], cost: 'Free', avail: 'Every Saturday 9–12', mutual: 4 },
+  { id: 8, cat: 'volunteer', kind: 'offer', who: { name: 'Jens Poulsen', ini: 'JP', color: 'sky', role: 'Retired engineer' }, title: 'Repair Café: fix it, don’t replace it', desc: 'Bring a broken lamp, bike light or toaster and we’ll fix it together. Volunteers with any skill welcome.', tags: ['repair', 'making', 'volunteering'], format: ['Group', 'In person'], cost: 'Free', avail: 'First Sunday monthly · Vesterbro', mutual: 1 },
+  { id: 9, cat: 'mentor', kind: 'ask', who: { name: 'Freja Andersen', ini: 'FA', color: 'sand', role: 'Design student' }, title: 'Looking for a design mentor before graduation', desc: 'Final-year design student in Copenhagen. Would love feedback on my portfolio and my first job search.', tags: ['design', 'portfolio', 'mentoring'], format: ['1:1', 'Remote'], cost: 'Free', avail: 'Flexible', mutual: 1 },
+  { id: 10, cat: 'skill', kind: 'ask', who: { name: 'Nadia Rahman', ini: 'NR', color: 'peach', role: 'Bakery owner' }, title: 'Help redesigning my bakery’s menu & sign', desc: 'Small bakery in Nørrebro. Can pay in kanelsnegle forever, or teach you sourdough.', tags: ['design', 'branding'], format: ['1:1', 'In person'], cost: 'Exchange', avail: 'This month', mutual: 2 },
+  { id: 11, cat: 'volunteer', kind: 'ask', who: { name: 'Nørrebro Library', ini: 'NL', color: 'mint', role: 'Community circle' }, title: 'Volunteers for a gymnasium career day', desc: 'Share your job with gymnasium students in 15-minute table chats. Internationals and designers especially welcome!', tags: ['career', 'volunteering', 'design'], format: ['Group', 'In person'], cost: 'Free', avail: 'Nov 20', mutual: 0 },
+  { id: 12, cat: 'training', kind: 'ask', who: { name: 'Carlos Mendes', ini: 'CM', color: 'lav', role: 'Career changer · new in Copenhagen' }, title: 'Seeking intros to product designers', desc: 'Moving from teaching into UX after relocating to Denmark. Looking for 2–3 short chats with working designers.', tags: ['intros', 'career change', 'design'], format: ['1:1', 'Remote'], cost: 'Free', avail: 'Weekday evenings', mutual: 1 },
 ];
 
+/* Credits each member has earned by helping others (time-bank style: 1 credit ≈ 1 hour) */
+const WHO_CREDITS = { 1: 236, 13: 312, 2: 174, 3: 98, 14: 265, 4: 61, 5: 143, 6: 52, 7: 418, 8: 207, 9: 18, 10: 34, 11: 380, 12: 9 };
+listings.forEach(l => { if (l.who.credits == null) l.who.credits = WHO_CREDITS[l.id] || 0; });
+const LEVELS = [
+  { name: 'Newcomer', min: 0 }, { name: 'Connected', min: 50 },
+  { name: 'Contributor', min: 150 }, { name: 'Door-opener', min: 300 },
+];
+const levelOf = c => [...LEVELS].reverse().find(l => c >= l.min);
+
 const circles = [
-  { e: '🌿', bg: 'var(--teal-soft)', name: 'Design & a little life', desc: 'Sunday walks for designers. 42 members.', next: 'Sun · Lake Merritt' },
-  { e: '🍳', bg: 'var(--sand)', name: 'The Sunday Table', desc: 'Breakfast & new beginnings. 18 members.', next: 'Nov 1 · June’s Kitchen' },
-  { e: '🗣️', bg: 'var(--lav)', name: 'Spanish over coffee', desc: 'All levels welcome. 27 members.', next: 'Sat · Café Luna' },
-  { e: '🥕', bg: 'var(--peach)', name: 'East Bay Food Share', desc: 'Feeding neighbors weekly. 130 members.', next: 'Sat · 9 am' },
+  { e: '🌿', bg: 'var(--teal-soft)', name: 'Design & a little life', desc: 'Sunday walks for designers. 42 members.', next: 'Sun · Fælledparken' },
+  { e: '🍳', bg: 'var(--sand)', name: 'The Sunday Table', desc: 'Breakfast & new beginnings. 18 members.', next: 'Nov 1 · June’s Kitchen, Nørrebro' },
+  { e: '🗣️', bg: 'var(--lav)', name: 'Danish over coffee', desc: 'All levels welcome. 27 members.', next: 'Sat · Vesterbro' },
+  { e: '🍲', bg: 'var(--peach)', name: 'Nørrebro Food Share', desc: 'Sharing surplus food weekly. 130 members.', next: 'Sat · 9 am' },
 ];
 
 /* ---------------- State ---------------- */
-const state = { cat: 'all', kind: 'offer', q: '', format: '', cost: '', matchOnly: false, done: new Set(), joined: new Set(['The Sunday Table', 'Design & a little life', 'Spanish over coffee', 'East Bay Food Share']), requested: new Set() };
+const state = { sort: 'match', cat: 'all', kind: 'offer', q: '', format: '', cost: '', matchOnly: false, done: new Set(), joined: new Set(['The Sunday Table', 'Design & a little life', 'Danish over coffee', 'Nørrebro Food Share']), requested: new Set() };
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const findPerson = id => people.find(p => p.id === id) || (id === 'aisha' ? aisha : null);
@@ -694,7 +744,7 @@ const AI_IDEAS = {
     { short: 'Share a first-time manager read', step: 'Share a short reading list for first-time managers.', why: 'It’s a practical way to help during <b>his first month</b>.', draft: 'Hi Daniel, a few reads that helped friends of mine in their first manager role. No pressure, just in case they’re useful!' },
   ],
   sofia: [
-    { short: 'Plan Thursday’s Spanish topic', step: 'Suggest her mom’s December visit as this Thursday’s Spanish topic.', why: 'You practice together <b>weekly</b>, and her mom visits soon.', draft: '¡Hola Sofia! ¿Para el jueves hablamos de la visita de tu mamá? I want to hear all the plans.' },
+    { short: 'Plan Thursday’s Danish topic', step: 'Suggest her mom’s December visit as this Thursday’s Danish topic.', why: 'You practice together <b>weekly</b>, and her mom visits soon.', draft: 'Hej Sofia! Skal vi snakke om din mors besøg på torsdag? I want to hear all the plans.' },
   ],
   june: [
     { short: 'Ask about the 1960s cookbook', step: 'At The Sunday Table, ask June about her 1960s Korean cookbook.', why: 'You’ll see her <b>November 1</b>, and you noted she collects old cookbooks.', draft: 'Hi June! Looking forward to Sunday. Would you bring the 1960s Korean cookbook? I’d love to see it.' },
@@ -704,7 +754,7 @@ const AI_IDEAS = {
     { short: 'Coffee now that the house is quiet', step: 'Invite Omar for coffee now that his daughter has started college.', why: 'A <b>big life moment</b>. A quiet house can feel strange.', draft: 'Hi Omar, thinking of you with your daughter off to college. Fancy a coffee next week?' },
   ],
   priya: [
-    { short: 'Wish her luck for Bishop', step: 'Wish Priya luck on her first outdoor climb in Bishop.', why: 'She’s <b>training for it right now</b>. You noted it last week.', draft: 'Priya! Good luck in Bishop. Send photos from the top 🧗‍♀️' },
+    { short: 'Wish her luck at Kullaberg', step: 'Wish Priya luck on her first outdoor climb at Kullaberg.', why: 'She’s <b>training for it right now</b>. You noted it last week.', draft: 'Priya! Good luck at Kullaberg. Send photos from the top 🧗‍♀️' },
   ],
   _new: [
     { short: 'Propose a 20-minute intro chat', step: 'Send a warm thank-you and suggest a 20-minute intro chat.', why: 'New connections are most likely to stick when the <b>first conversation happens within a week</b>.', draft: '' },
@@ -931,10 +981,12 @@ function renderMarket() {
     (!state.cost || l.cost === state.cost) &&
     (!state.matchOnly || isMatch(l)) &&
     (!q || [l.title, l.desc, l.who.name, ...l.tags].join(' ').toLowerCase().includes(q))
-  ).sort((a, b) => isMatch(b) - isMatch(a) || b.mutual - a.mutual);
+  ).sort((a, b) => state.sort === 'credits'
+    ? b.who.credits - a.who.credits
+    : isMatch(b) - isMatch(a) || b.mutual - a.mutual);
 
   const catLabel = state.cat === 'all' ? 'listings' : CATS.find(c => c.k === state.cat).label.toLowerCase();
-  $('#resultMeta').textContent = `${list.length} ${catLabel} · ${state.kind === 'offer' ? 'people offering help' : 'people asking for help'} · good matches first`;
+  $('#resultMeta').textContent = `${list.length} ${catLabel} · ${state.kind === 'offer' ? 'people offering help' : 'people asking for help'} · ${state.sort === 'credits' ? 'most credits first' : 'good matches first'}`;
 
   $('#listings').innerHTML = list.map(l => {
     const sent = state.requested.has(l.id);
@@ -945,7 +997,11 @@ function renderMarket() {
         <span class="kind ${l.kind}">${l.kind === 'offer' ? 'Offering' : 'Asking'} · ${CATS.find(c => c.k === l.cat).label.replace(/s$/, '')}</span>
         ${isMatch(l) ? `<span class="match">${ICON.star} Good match</span>` : ''}
       </div>
-      <div class="who">${av(l.who, 'sm')}<div><div class="n">${esc(l.who.name)}</div><div class="r">${esc(l.who.role)}</div></div></div>
+      <div class="who">${av(l.who, 'sm')}<div><div class="n">${esc(l.who.name)}</div><div class="r">${esc(l.who.role)}</div></div>
+        <div class="cred" title="${l.who.credits} credits earned by helping others">
+          <b>${ICON.coin}${l.who.credits}</b><span>${levelOf(l.who.credits).name}</span>
+        </div>
+      </div>
       <h4>${esc(l.title)}</h4>
       <p>${esc(l.desc)}</p>
       <div class="tags">${l.format.map(f => `<span class="pill ghost">${f}</span>`).join('')}<span class="pill ghost">${l.cost}</span></div>
@@ -980,22 +1036,25 @@ function connect(id) {
       <textarea class="input" id="connMsg" style="min-height:110px">${isOffer
         ? `Hi ${first}! I came across your listing and it’s exactly what I’ve been looking for. In return I’m happy to help with design mentoring or thoughtful intros. Would you be open to a first chat?`
         : `Hi ${first}! I’d be glad to help with this. I’m a product designer and have done this kind of thing before. When works for a quick chat?`}</textarea></div>
-    <p class="muted" style="font-size:13px;margin:0">Once ${first} accepts, they’ll appear in My People.</p>
+    <p class="muted" style="font-size:13px;margin:0">${isOffer
+      ? `Uses <b style="color:#7a5a1c">1 credit</b> per session (you have ${profile.credits}).`
+      : `You’ll earn <b style="color:#7a5a1c">2 credits</b> for helping.`} Once ${first} accepts, they’ll appear in My People.</p>
     <div class="actions"><button class="btn ghost" onclick="closeModal()">Cancel</button><button class="btn" onclick="sendConnect(${id})">Send</button></div>`);
 }
 function sendConnect(id) {
   const l = listings.find(x => x.id === id);
   state.requested.add(id);
   closeModal();
-  if (l.kind === 'offer') { $('#bal-conn').textContent = +$('#bal-conn').textContent + 1; }
-  else { $('#bal-give').textContent = +$('#bal-give').textContent + 1; }
+  if (l.kind === 'offer') { $('#bal-conn').textContent = +$('#bal-conn').textContent + 1; profile.credits = Math.max(0, profile.credits - 1); }
+  else { $('#bal-give').textContent = +$('#bal-give').textContent + 1; profile.credits += 2; }
+  renderCredits();
   // Add the person to My People (demo: auto-accepted)
   if (l.who === aisha) aisha.added = true;
   else if (!people.find(p => p.name === l.who.name)) {
     people.push({ id: 'p' + id, name: l.who.name, ini: l.who.ini, color: l.who.color, role: l.who.role, met: 'Doorway community', rhythm: 'New', last: null, closeness: .1, notes: [{ q: `Connected about “${l.title}”.`, w: 'Just now' }], moments: [], circles: [], isNew: true });
   }
   renderMarket(); renderFaces();
-  toast(`${l.who.name.split(' ')[0]} said yes, and is now in your people 🌱`);
+  toast(`${l.who.name.split(' ')[0]} said yes, and is now in your people 🌱 ${l.kind === 'offer' ? '−1 credit' : '+2 credits'}`);
 }
 
 function renderCircles() {
@@ -1040,7 +1099,7 @@ function submitPost() {
   const kind = $('#postKind .active').dataset.k;
   const l = {
     id: Date.now(), cat: $('#pCat').value, kind, title,
-    who: { name: 'Jamie Lin (you)', ini: 'JL', color: 'peach', role: 'Product designer' },
+    who: { name: 'Jamie Lin (you)', ini: 'JL', color: 'peach', role: 'Product designer', credits: profile.credits },
     desc: $('#pDesc').value.trim() || 'Details to come. Reach out and say hi.',
     tags: title.toLowerCase().split(/\W+/).filter(w => w.length > 3),
     format: [$('#pFormat').value], cost: $('#pCost').value, avail: $('#pAvail').value.trim() || 'Flexible', mutual: 0,
@@ -1054,8 +1113,27 @@ function submitPost() {
 }
 
 /* ---------------- Profile ---------------- */
+function renderCredits() {
+  const c = profile.credits, lvl = levelOf(c);
+  const next = LEVELS[LEVELS.indexOf(lvl) + 1];
+  const fill = k => {
+    const lo = LEVELS[k].min, hi = LEVELS[k + 1] ? LEVELS[k + 1].min : lo + 200;
+    return Math.max(0, Math.min(1, (c - lo) / (hi - lo))) * 100;
+  };
+  $('#creditsBox').innerHTML = `
+    <div class="cr-top">
+      <div class="cr-num">${ICON.coin}${c}<small>credits</small></div>
+      <span class="cr-level">${lvl.name}</span>
+    </div>
+    <div class="cr-bar">${LEVELS.map((_, k) => `<i><span style="width:${fill(k)}%"></span></i>`).join('')}</div>
+    <div class="cr-scale">${LEVELS.map(l => `<span class="${l === lvl ? 'on' : ''}">${l.name}</span>`).join('')}</div>
+    <div class="cr-next">${next ? `<b>${next.min - c} credits</b> to ${next.name}` : 'You open doors for others. Thank you.'}</div>`;
+  $('#bal-cred').textContent = c;
+}
 function renderProfile() {
-  const row = (x, i, key) => `<div class="oa"><div><div class="t">${esc(x.t)}</div><div class="d">${esc(x.d)}</div></div><button class="x" title="Remove" onclick="removeOA('${key}', ${i})">${ICON.x}</button></div>`;
+  renderCredits();
+  const row = (x, i, key) => `<div class="oa"><div><div class="t">${esc(x.t)}</div><div class="d">${esc(x.d)}</div></div>
+    <div style="display:flex;align-items:center;gap:8px">${key === 'offers' ? `<span class="cr-chip" title="Credits you earn per session">${ICON.coin} +${x.cr || 1} / session</span>` : ''}<button class="x" title="Remove" onclick="removeOA('${key}', ${i})">${ICON.x}</button></div></div>`;
   $('#offersList').innerHTML = profile.offers.map((x, i) => row(x, i, 'offers')).join('');
   $('#asksList').innerHTML = profile.asks.map((x, i) => row(x, i, 'asks')).join('');
 }
@@ -1063,7 +1141,7 @@ function removeOA(key, i) { profile[key].splice(i, 1); renderProfile(); renderMa
 function addOA(key) {
   const input = key === 'offers' ? $('#addOffer') : $('#addAsk');
   const v = input.value.trim(); if (!v) return;
-  profile[key].push({ t: v, d: 'Just added' }); input.value = '';
+  profile[key].push(key === 'offers' ? { t: v, d: 'Just added', cr: +$('#addOfferCr').value } : { t: v, d: 'Just added' }); input.value = '';
   renderProfile(); renderMarket();
   toast(key === 'offers' ? 'Added to your offers' : 'Added. We’ll look for good matches');
 }
@@ -1105,9 +1183,11 @@ $('#mpSearch').oninput = e => { state.q = e.target.value; renderMarket(); };
 $('#fFormat').onchange = e => { state.format = e.target.value; renderMarket(); };
 $('#fCost').onchange = e => { state.cost = e.target.value; renderMarket(); };
 $('#fMatch').onchange = e => { state.matchOnly = e.target.checked; renderMarket(); };
+$('#fSort').onchange = e => { state.sort = e.target.value; renderMarket(); };
 $('#postBtn').onclick = openPost;
 
 /* ---------------- Init ---------------- */
+document.querySelector('.coin-slot').outerHTML = ICON.coin;
 renderToday(); renderAICard(); renderFaces(); renderAside(); renderMarket(); renderCircles(); renderProfile();
 </script>
 </body>
